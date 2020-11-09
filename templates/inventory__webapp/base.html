@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link bootstrap css js jquery -->
+    <script src="{% static 'inventory__webapp/bootstrap/jquery/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'inventory__webapp/bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static  'inventory__webapp/bootstrap/css/bootstrap.min.css' %}">
+
+
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/header.css' %}">
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/purchase.css' %}">
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/stock.css' %}">
+
+
+    <link rel="stylesheet" href="{% static  'inventory__webapp/css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'inventory__webapp/css/purchase__return.css'%}">
+
+
+    <script src="{% static 'inventory__webapp/js/purchase.js' %}"></script>
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+{% block header%}
+{% endblock%}
+    {% block content%}
+    {% endblock %}
+   </body>
+
+</html>

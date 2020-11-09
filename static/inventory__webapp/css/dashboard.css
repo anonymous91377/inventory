@@ -1,0 +1,92 @@
+.purchase{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+   
+}
+.purchase_report{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;   
+    margin-right: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.supplier{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.sec1{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+
+}
+.sec2{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;  
+}
+.sales{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    display: flex;
+    margin-right: 1rem; 
+    justify-content: space-around;
+    align-items: center   
+}
+.sales_report{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    display: flex;
+    margin-right: 1rem;
+    justify-content: space-around;
+    align-items: center
+}
+.customer{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    display: flex;
+   
+    justify-content: space-around;
+    align-items: center  
+}
+.sec3{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+  
+}
+.stock{
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border-top: 10px solid #535C68;
+    display: flex;
+    justify-content: space-around;
+    align-items: center   
+}
+.main{
+    padding:1rem
+}

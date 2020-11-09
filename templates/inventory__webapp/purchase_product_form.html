@@ -1,0 +1,67 @@
+<!-- Modal -->
+
+
+<form method="POST" id="form" action="{% url 'purchase_product' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="product_name">Product Name</label>
+        <input type="text" name="product_name" id="product_name" class="form-control" required>
+        <label for="product_price"> Price</label>
+        <input type="number" name="product_price" id="product_price" class="form-control" required>
+        <label for="product_quantity"> Quantity</label>
+        <input type="number" name="product_quantity" id="product_quantity" class="form-control" required>
+        <label for="product_gst"> Gst</label>
+        <input type="number" name="product_gst" id="product_gst" class="form-control" required>
+        <label for="supplier">supplier Name</label>
+        <input type="text" name="supplier" id="supplier" class="form-control" required>
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id='address' name="address" required>
+        <label for="contact_no">Contact NO</label>
+        <input type="number" name="contact_no" id="contact_no" class="form-control" minlength="10" maxlength="10" required
+            pattern="\d*" />
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="modal__button create-product">Create Product
+        </button>
+    </div>
+</form>
+
+
+<!-- submit for data via ajax -->
+<script>
+    $(function () {
+
+        $('#supplier').keydown(function (e) {
+            if (e.ctrlKey || e.altKey || e.shiftKey) {
+                e.preventDefault();
+            }
+            else {
+                var key = e.keyCode
+
+                if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+
+                    e.preventDefault();
+
+                }
+
+            }
+        })
+        $('#form').submit(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success(response) {
+                    if (response.status == 'ok') {
+                        $('#myModal').modal('hide');
+                    }
+                }
+            })
+            return false
+        })
+    })
+</script>

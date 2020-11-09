@@ -1,0 +1,30 @@
+.header{
+    
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       padding-left: 2.5rem;
+       padding-right: 2.5rem;
+       background-color: #535C68;
+}
+.header__right{
+       display: flex;
+       align-items: center;
+}
+.logo{
+       
+       color:white;
+       font-size: 2rem;
+}
+.logo:hover{
+       color:white;
+       text-decoration: none;
+}      
+.header__right > a{
+       color:white;
+       font-size: 1rem;
+       margin-right: .2rem;
+}
+

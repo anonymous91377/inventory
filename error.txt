@@ -1,0 +1,6 @@
+1) if you face this error -> binascii.Error: Incorrect padding
+solution ->   from django.contrib.sessions.models import Session
+              Session.objects.all().delete()
+
+2) if you face this error -> argument type 1 must be str
+solution -> in setting.py wrap str(BASE_DIR /,"something!!.db")

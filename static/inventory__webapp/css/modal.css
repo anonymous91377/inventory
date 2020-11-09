@@ -1,0 +1,22 @@
+.modal__button{
+    background-color: white;
+    border: 2px solid #535C68;
+    padding: 10px;
+    border-radius: 5px;
+    color: #535C68;
+   
+}
+.modal-title{
+    color: #535C68;
+}
+.close{
+  color:  #535C68;  
+}
+.close:hover{
+    color: #535C68  ;
+}
+
+label{
+    color:  #535C68;
+}
+

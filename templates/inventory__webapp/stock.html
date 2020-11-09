@@ -1,0 +1,49 @@
+<div class="table__container">
+    <div class="search__input">
+        <input type="text" placeholder="Search Product" name="search__products" id="search__products"
+            class="search__products" onfocus="this.placeholder=''">
+
+        <i class="fa fa-search search__icon" style="color:#535C68;">
+            
+        </i>
+
+    </div>
+
+    <table class="table" id="stock__table">
+        <thead class="stock__headers">
+            <tr>
+                <th>Products</th>
+                <th>Quantitys</th>
+            </tr>
+
+        </thead>
+        <tbody class="table__body">
+            {% for read in data %}
+            <tr class="stoc__inner__row">
+                <td>
+                    {{read.product_name}}
+                </td>
+    
+                <td>
+                    {{read.quantity}}
+                </td>
+    
+            </tr>
+            {% endfor %}
+    
+        </tbody>
+        
+    </table>
+</div>
+
+<script>
+    // searc filter
+        $(document).ready(function(){
+          $("#search__products").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".table__body tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+</script>

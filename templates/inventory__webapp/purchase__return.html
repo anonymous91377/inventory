@@ -1,0 +1,119 @@
+{% extends 'inventory__webapp/base.html'%}
+{% block content%}
+
+<div class="container">
+  <div class="addButton__searchBox d-flex justify-content-between" >
+    <div class="add__button">
+
+      <i class="fa fa-plus ">
+        <button type="button" value="Add Product" class="return_product" >Return Product</button>
+  
+      </i>
+  
+  
+    </div>
+    <div class="container__searchInput" style=" display: flex;
+    border: 1px solid #535C68 ;
+    height: 40px;
+    padding: 10px 20px;  
+    border-radius: 999px;
+    width: 30vw;">
+      <input type="text" placeholder="Search Product" name="container__searchProducts"
+        id="search__products" onfocus="this.placeholder=''"
+        style=" flex: 1;
+        font-size: medium;
+        border: none;
+        color: #535C68;
+        outline-width: 0;
+        "
+        >
+  
+      <i class="fa fa-search search__icon" style="color:#535C68;">
+  
+      </i>
+  
+    </div>
+  </div>
+ 
+  <div class="table">
+    <table class="table" id="table__data">
+      <thead class="headers">
+        <tr>
+          <th>Products</th>
+          <th>Price</th>
+          <th>Gst</th>
+          <th>Quantitys</th>
+          <th>Supllier</th>
+          <th>Address</th>
+          <th>Contact_No</th>
+          <th>Created_at</th>
+          <th>Edit</th>
+        </tr>
+        <tr>
+      </thead>
+      <tbody id="table__body">
+        {% for read in data %}
+        <tr class="inner__row">
+          <td>
+            {{read.product_name}}
+          </td>
+          <td>
+            {{read.price}}
+          </td>
+          <td>
+            {{read.gst}}
+          </td>
+          <td>
+            {{read.quantity}}
+          </td>
+          <td>
+            {{read.supplier}}
+          </td>
+          <td>
+            {{read.address}}
+          </td>
+          <td>
+            {{read.contact_no}}
+          </td>
+          <td>
+            {{read.created_at}}
+
+          </td>
+          <td>
+  
+  
+            <i class="fa fa-pencil edit_purchase_return" style="cursor: pointer;" aria-hidden="true"
+             ></i>
+  
+  
+  
+          </td>
+        </tr>
+        {% endfor %}
+  
+      </tbody>
+      
+    </table>
+
+  </div>
+</div>
+<script>
+    $(function(){
+        $('.return_product').click(function(){
+          $.ajax({
+              url:'/inventory__webapp/PurchaseReturn/',
+              type:'get',
+              dataType:'json',
+              success(response){
+                  if(response.status=='modal'){
+                      $('h5').html('Return Product')
+                    $('.modal .modal-content .modal-body').html(response.purchase__return__modal);
+                    $('#myModal').modal('show');
+                  }
+              }
+          })  
+        })
+    })
+    
+</script>
+{% endblock %}

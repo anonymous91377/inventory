@@ -1,0 +1,153 @@
+{% extends 'inventory__webapp/base.html'%}
+{% block content%}
+
+<div class="container">
+  <div class="addButton__searchBox d-flex justify-content-between" >
+    <div class="add__button">
+
+      <i class="fa fa-plus add__product__button">
+        <button type="button" value="Add Product" class="add_product">Add Product</button>
+  
+      </i>
+  
+  
+    </div>
+    <div class="container__searchInput" style=" display: flex;
+    border: 1px solid #535C68 ;
+    height: 40px;
+    padding: 10px 20px;  
+    border-radius: 999px;
+    width: 30vw;">
+      <input type="text" placeholder="Search Product" name="container__searchProducts"
+        id="search__products" onfocus="this.placeholder=''"
+        style=" flex: 1;
+        font-size: medium;
+        border: none;
+        color: #535C68;
+        outline-width: 0;
+        "
+        >
+  
+      <i class="fa fa-search search__icon" style="color:#535C68;">
+  
+      </i>
+  
+    </div>
+  </div>
+ 
+  <div class="table">
+    <table class="table" id="table__data">
+      <thead class="headers">
+        <tr>
+          <th>Products</th>
+          <th>Price</th>
+          <th>Gst</th>
+          <th>Quantitys</th>
+          <th>Suppliers</th>
+          <th>Address</th>
+          <th>Contact_No</th>
+          <th>Created_at</th>
+          <th>Edit</th>
+        </tr>
+        <tr>
+      </thead>
+      <tbody id="table__body">
+        {% for read in data %}
+        <tr class="inner__row">
+          <td>
+            {{read.product_name}}
+          </td>
+          <td>
+            {{read.product_price}}
+          </td>
+          <td>
+            {{read.product_gst}}
+          </td>
+          <td>
+            {{read.product_quantity}}
+          </td>
+          <td>
+            {{read.name}}
+  
+          </td>
+          <td>
+            {{read.address}}
+          </td>
+          <td>
+            {{read.contact_no}}
+          </td>
+          <td>
+            {{read.created_at}}
+  
+          </td>
+          <td>
+  
+  
+            <i class="fa fa-pencil edit" style="cursor: pointer;" aria-hidden="true"
+              data-url="{% url 'edit_purchase_product' read.pk %}" supplier-pk={{read.s_pk}} product-pk={{read.p_pk}}></i>
+  
+  
+  
+          </td>
+        </tr>
+        {% endfor %}
+  
+      </tbody>
+      
+    </table>
+
+  </div>
+</div>
+
+<script>
+  // modal form will open for edit purpose
+  $(function () {
+    $('.edit').click(function () {
+      $.ajax({
+        url: $(this).attr('data-url'),
+        type: 'get',
+        data: {
+          's_pk': $(this).attr('supplier-pk'),
+          'p_pk': $(this).attr('product-pk')
+
+        },
+        dataType: 'json',
+        success(response) {
+          if (response.status == 'ok') {
+
+            //    data['context']={'quantity':quantity,'price':price,'gst':gst,'product_name':product_name,'supplier_name':supplier_name,
+            // 'pk':pk,'supplier_address':supplier_address,'supplier_contact':supplier_contact}
+
+            $('.modal .modal-content .modal-body').html(response.edit_purchase_product_form);
+            $('#product_name').val(response.context.product_name)
+            $('#product_price').val(response.context.price)
+            $('#product_quantity').val(response.context.quantity)
+            $('#product_gst').val(response.context.gst)
+            $('#supplier').val(response.context.supplier_name)
+            $('#address').val(response.context.supplier_address)
+            $('#contact_no').val(response.context.supplier_contact)
+            $('#myModal').modal('show');
+          }
+        }
+      })
+    })
+  })
+
+   
+
+   // search filter on table
+   $(document).ready(function(){
+    $("#search__products").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#table__body tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+  
+  
+  
+</script>
+
+{% endblock%}

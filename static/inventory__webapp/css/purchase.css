@@ -1,0 +1,32 @@
+.add__product__button{
+    background-color:#535C68 ;
+    padding: 10px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.table{
+    padding-top: 1rem;
+}
+.table>.headers{
+    background-color: #535C68;
+    
+}
+.table>.headers>tr>th{
+    color: white;
+}
+.inner__row{
+    background-color: white;
+}
+td{
+    color: #535C68;
+}
+
+.add_product{
+    background-color: #535C68;
+    border: none;
+    color: white;
+}
+

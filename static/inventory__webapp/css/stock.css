@@ -1,0 +1,42 @@
+#stock__table{
+    width: 40rem;
+    
+}
+.stock__headers{
+text-align: center;
+background-color: #535C68;
+color: white;
+}
+.stoc__inner__row{
+    text-align: center;
+}
+.table__container{
+    display: flex;
+    flex-direction: column;
+   
+   align-items: flex-start;
+}
+.search__input{
+    display: flex;
+    border: 1px solid #535C68 ;
+    height: 40px;
+    padding: 10px 20px;  
+    border-radius: 999px;
+    width: 30vw;
+    margin-bottom: 10px;
+
+}
+
+.search__input > input{
+    flex: 1;
+    font-size: medium;
+    border: none;
+    color: #535C68;
+}
+.search__input > input:focus{
+    outline-width: 0;
+    
+    }
+.search__icon{
+    cursor: pointer;
+}
